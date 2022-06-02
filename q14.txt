@@ -1,0 +1,19 @@
+Prog 14: Write a PL/SQL program to find greatest of 3
+numbers.
+SQL> declare
+  2  a number:=10;
+  3  b number:=20;
+  4  c number:=30;
+  5  begin
+  6  if a>b and a>c then
+  7  dbms_output.put_line('greatest number is'||a);
+  8  elsif b>a and b>c then
+  9  dbms_output.put_line('greatest number is'||b);
+ 10  else
+ 11  dbms_output.put_line('greatest number is'||c);
+ 12  end if;
+ 13  end;
+ 14  /
+greatest number is30
+
+PL/SQL procedure successfully completed.

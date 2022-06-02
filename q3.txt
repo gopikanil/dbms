@@ -1,0 +1,92 @@
+PROG 3:   Create a table
+and execute DCL statements (grant,revoke)
+
+
+
+
+SQL> create user muhisina identified by musi;
+
+User created.
+SQL> create table employee(empid int primary key,empname varchar(20),deptid int,
+salary float);
+
+Table created.
+
+
+SQL> insert into employee values(1,'Milu',100,10000);
+
+1 row created.
+
+SQL> insert into employee values(2,'Navami',101,30000);
+
+1 row created.
+
+
+SQL> insert into employee values(3,'Madhu',103,35000);
+
+1 row created.
+
+SQL> insert into employee values(4,'Rose',103,40000);
+
+1 row created.
+
+SQL> insert into employee values(5,'Megha',104,23000);
+
+1 row created.
+
+
+SQL> select * from employee;
+
+     EMPID EMPNAME                  DEPTID     SALARY
+---------- -------------------- ---------- ----------
+         2 Navami                      101      30000
+         3 Madhu                       103      35000
+         4 Rose                        103      40000
+         5 Megha                       104      23000
+
+SQL> grant all on employee to muhisina;
+
+Grant succeeded.
+
+SQL> grant create session to muhisina;
+
+Grant succeeded.
+
+SQL> connect muhisina
+Enter password:
+Connected.
+  3
+SQL> select * from system.employee;
+
+     EMPID EMPNAME                  DEPTID     SALARY
+---------- -------------------- ---------- ----------
+         2 Navami                      101      30000
+         3 Madhu                       103      35000
+         4 Rose                        103      40000
+         5 Megha                       104      23000
+
+SQL> connect system
+Enter password:
+Connected.
+SQL> revoke all on employee from muhisina;
+
+Revoke succeeded.
+
+SQL> connect muhisina
+Enter password:
+Connected.
+SQL> select * from employee;
+select * from employee
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> select * from system.employee;
+select * from system.employee
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+

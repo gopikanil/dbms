@@ -1,0 +1,106 @@
+PROG 5:
+Consider the CUSTOMERS table having the following records
+ID NAME AGE HOME-TOWN SALARY
+1 Ramesh 32 Ahmedabad 2000.00
+2 Khilan 25 Delhi 1500.00
+4 kaushik 23 Kota 2000.00
+4 Chaitali 25 Mumbai 6500.00
+5 Hardik 27 Bhopal 8500.00
+6 Komal 22 MP 4500.00
+7 Muffy 24 Indore 10000.00
+8
+Ramu 23
+Delhi
+6000.00
+9 Rohit 24 Ahmedabad 5000.00
+10 Shamli 23 Mumbai 10000.00
+a) Display details of Customers whose ID is 4(Simple select)
+b) Display distinct home-town of customers.(DISTINCT)
+c) Display total number of Salary of customers.(COUNT)
+SQL> create table customer1(id int primary key,name varchar(20),age int,home_tow
+n varchar(20),salary float);
+
+Table created.
+
+SQL> insert into customer1 values(1,'Ramesh',32,'Ahmedabad',2000);
+
+1 row created.
+
+SQL> insert into customer1 values(2,'Khilan',25,'Delhi',1500);
+
+1 row created.
+
+SQL> insert into customer1 values(3,'Kaushik',23,'Kota',2000);
+
+1 row created.
+
+SQL> insert into customer1 values(4,'Chaitali',25,'Mumbai',6500);
+
+1 row created.
+
+SQL> insert into customer1 values(5,'Hardik',27,'Bhopal',8500);
+
+1 row created.
+
+SQL> insert into customer1 values(6,'Komal',22,'MP',4500);
+
+1 row created.
+
+SQL> insert into customer1 values(7,'Muffy',24,'Indore',10000);
+
+1 row created.
+
+SQL> insert into customer1 values(8,'Ramu',23,'Delhi',6000);
+
+1 row created.
+
+SQL> insert into customer1 values(9,'Rohit',24,'Ahmedabad',5000);
+
+1 row created.
+
+SQL> insert into customer1 values(10,'Shamli',23,'Mumbai',10000);
+
+1 row created.
+
+SQL> select * from customer1;
+
+        ID NAME                        AGE HOME_TOWN                SALARY
+---------- -------------------- ---------- -------------------- ----------
+         1 Ramesh                       32 Ahmedabad                  2000
+         2 Khilan                       25 Delhi                      1500
+         3 Kaushik                      23 Kota                       2000
+         4 Chaitali                     25 Mumbai                     6500
+         5 Hardik                       27 Bhopal                     8500
+         6 Komal                        22 MP                         4500
+         7 Muffy                        24 Indore                    10000
+         8 Ramu                         23 Delhi                      6000
+         9 Rohit                        24 Ahmedabad                  5000
+        10 Shamli                       23 Mumbai                    10000
+
+10 rows selected.
+
+SQL> select * from customer1 where id=4;
+
+        ID NAME                        AGE HOME_TOWN                SALARY
+---------- -------------------- ---------- -------------------- ----------
+         4 Chaitali                     25 Mumbai                     6500
+
+SQL> select distinct home_town from customer1;
+
+HOME_TOWN
+--------------------
+Bhopal
+Ahmedabad
+Delhi
+Kota
+Mumbai
+MP
+Indore
+
+7 rows selected.
+
+SQL> select count(salary) from customer1;
+
+COUNT(SALARY)
+-------------
+           10

@@ -1,0 +1,183 @@
+
+
+PROG 2: Execute DML statements
+
+
+a) Create table Employee
+(EmployeeId,Name,Department,salary) Also create another table
+
+
+Department
+(DepartmentId,DeptName,HeadOfDepartment)
+
+
+ 
+
+
+b) Insert
+minimum of 5 rows
+
+
+c) Set Primary
+Key and Foreign Key constraints
+
+
+d) Display the
+records.
+
+
+e) Update a
+record
+
+
+f) Delete a
+record
+
+
+
+
+SQL> create table employee(empid int primary key,empname varchar(20),deptid int,
+salary float);
+
+Table created.
+
+SQL> create table department(deptid int primary key,deptname varchar(20),headofd
+ept varchar(20));
+
+Table created.
+
+
+SQL> alter table employee ADD FOREIGN KEY(deptid)REFERENCES employee(deptid);
+
+Table altered.
+
+
+1 row created.
+
+
+SQL> insert into department values(100,'CS','sebastian cyriac
+
+1 row created.
+
+SQL> insert into department values(101,'ECE','Neha jaffar');
+
+1 row created.
+
+SQL> insert into department values(103,'EEE','Asif');
+
+1 row created.
+
+SQL> insert into department values(104,'Mech','Juby');
+
+1 row created.
+
+SQL> insert into department values(105,'BCA','Cinta');
+
+1 row created.
+
+SQL> insert into employee values(1,'Milu',100,10000);
+
+1 row created.
+
+SQL> insert into employee values(2,'Navami',101,30000);
+
+1 row created.
+
+SQL> insert into department values(100,'CS','sebastian cyriac
+
+1 row created.
+
+SQL> insert into department values(101,'ECE','Neha jaffar');
+
+1 row created.
+
+SQL> insert into department values(103,'EEE','Asif');
+
+1 row created.
+
+SQL> insert into department values(104,'Mech','Juby');
+
+1 row created.
+
+SQL> insert into department values(105,'BCA','Cinta');
+
+1 row created.
+
+SQL> insert into employee values(1,'Milu',100,10000);
+
+1 row created.
+
+SQL> insert into employee values(2,'Navami',101,30000);
+
+1 row created.
+
+
+SQL> insert into employee values(3,'Merlin',103,35000);
+
+1 row created.
+
+SQL> insert into employee values(4,'Rose',103,40000);
+
+1 row created.
+
+SQL> insert into employee values(5,'Megha',104,23000);
+
+1 row created.
+
+SQL> select * from employee;
+
+     EMPID EMPNAME                  DEPTID     SALARY
+---------- -------------------- ---------- ----------
+         1 Milu                        100      10000
+         2 Navami                      101      30000
+         3 Merlin                      103      35000
+         4 Rose                        103      40000
+         5 Megha                       104      23000
+
+
+SQL> select * from department;
+
+    DEPTID DEPTNAME             HEADOFDEPT
+---------- -------------------- --------------------
+       100 CS                   sebastian cyriac
+       101 ECE                  Neha jaffar
+       103 EEE                  Asif
+       104 Mech                 Juby
+       105 BCA                  Cinta
+
+SQL> delete from employee where empid=1;
+
+1 row deleted.
+
+
+SQL> select * from department;
+
+    DEPTID DEPTNAME             HEADOFDEPT
+---------- -------------------- --------------------
+       100 CS                   sebastian cyriac
+       101 ECE                  Neha jaffar
+       103 EEE                  Asif
+       104 Mech                 Juby
+       105 BCA                  Cinta
+
+SQL> select * from employee;
+
+     EMPID EMPNAME                  DEPTID     SALARY
+---------- -------------------- ---------- ----------
+         2 Navami                      101      30000
+         3 Merlin                      103      35000
+         4 Rose                        103      40000
+         5 Megha                       104      23000
+
+SQL> update employee  set empname='Madhu' where empid=3;
+
+1 row updated.
+
+SQL> select * from employee;
+
+     EMPID EMPNAME                  DEPTID     SALARY
+---------- -------------------- ---------- ----------
+         2 Navami                      101      30000
+         3 Madhu                       103      35000
+         4 Rose                        103      40000
+         5 Megha                       104      23000

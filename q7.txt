@@ -1,0 +1,112 @@
+Aggregate functions:
+PROG 7:
+StudentID StudentName Marks
+1 Sanjay 64
+2 Varun 72
+3 Akash 45
+4 Rohit 86
+5 Anjali 92
+6 Ammu 95
+7 Rahul 80
+8 Prathibha 62
+9 Ravi 75
+10 Pulkit 76
+
+1. Write a query to count the number of students scoring marks >
+75 from the Students table.
+
+2. Write a query to calculate the average marks of all students from
+the Students table.
+
+3. Write a query to retrieve the minimum marks out of all students
+from the Students table.
+
+4. Write a query to retrieve the maximum marks out of all students
+from the Students table.
+
+SQL> create table stud(student_id int primary key,student_name varchar(20),mark
+s float);
+
+Table created.
+
+SQL> insert into stud values(1,'sanjay',64);
+
+1 row created.
+
+SQL> insert into stud values(2,'varun',72);
+
+1 row created.
+
+SQL> insert into stud values(3,'akash',45);
+
+1 row created.
+
+SQL> insert into stud values(4,'rohit',86);
+
+1 row created.
+
+SQL> insert into stud values(5,'anjali',92);
+
+1 row created.
+
+SQL> insert into stud values(6,'ammu',95);
+
+1 row created.
+
+SQL> insert into stud values(7,'rahul',80);
+
+1 row created.
+
+SQL> insert into stud values(8,'prathibha',62);
+
+1 row created.
+
+SQL> insert into stud values(9,'ravi',75);
+
+1 row created.
+
+SQL> insert into stud values(10,'pulkit',76);
+
+1 row created.
+
+SQL> select * from stud;
+
+STUDENT_ID STUDENT_NAME              MARKS
+---------- -------------------- ----------
+         1 Sanjay                       64
+         2 Varun                        72
+         3 Akash                        45
+         4 Rohit                        86
+         5 Anjali                       92
+         6 Ammu                         95
+         7 Rahul                        80
+         8 Prathibha                    62
+         9 Ravi                         75
+        10 Pulkit                       76
+
+10 rows selected.
+
+SQL> select count(marks) from stud where marks > 75;
+
+COUNT(MARKS)
+------------
+           5
+
+SQL> select avg(marks) from stud;
+
+AVG(MARKS)
+----------
+      74.7
+
+SQL> select min(marks) from stud;
+
+MIN(MARKS)
+----------
+        45
+
+SQL> select max(marks) from stud;
+
+MAX(MARKS)
+----------
+        95
+

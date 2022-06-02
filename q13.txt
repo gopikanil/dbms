@@ -1,0 +1,20 @@
+
+Prog 13:Write a PL/SQL program to find factorial of a
+number.
+
+
+SQL> declare
+  2  fac number:=1;
+  3  n number:=&n;
+  4  begin
+  5  while n>0 loop
+  6  fac:=n*fac;
+  7  n:=n-1;
+  8  end loop;
+  9  dbms_output.put_line(fac);
+ 10  end;
+ 11  /
+Enter value for n: 5
+old   3: n number:=&n;
+new   3: n number:=5;
+120
