@@ -1,0 +1,457 @@
+IV.           
+Query Processing
+
+
+a. Performing CRUD
+operations
+
+
+ 
+
+
+Prog
+19:Use Employee database
+
+1)   
+Find Document From the EMPL collection
+where name begins with S
+
+
+2)   
+Find Document From the EMPL collection
+where name ends with K
+
+
+3)   
+Find Document From the EMPL collection
+where name has S in any position
+
+
+4)   
+Update Salary Of Employee where Name
+is "ST" by +8000
+
+
+5)   
+Update Salary Of All Employee by
+giving an increment of +4000 each
+
+
+6)   
+Add a New Field remark to document
+with name "RS" set Remark as WC
+
+
+> db.EMPL.find()
+> use mydb
+switched to db mydb
+> db.EMPL.find().pretty()
+{
+        "_id" : ObjectId("62833c3d2c563f56eeda2e42"),
+        "empno" : 1,
+        "empname" : "abi",
+        "salary" : 25000,
+        "role" : "manager"
+}
+{
+        "_id" : ObjectId("62833cf72c563f56eeda2e43"),
+        "empno" : 2,
+        "empname" : "bobi",
+        "salary" : 12000,
+        "role" : "se"
+}
+{
+        "_id" : ObjectId("62833cf72c563f56eeda2e44"),
+        "empno" : 3,
+        "empname" : "ciyona",
+        "salary" : 15000,
+        "role" : "tester"
+}
+{
+        "_id" : ObjectId("62833dad2c563f56eeda2e45"),
+        "empno" : 4,
+        "empname" : "don",
+        "salary" : 8000,
+        "role" : "jse"
+}
+{
+        "_id" : ObjectId("62833dad2c563f56eeda2e46"),
+        "empno" : 5,
+        "empname" : "emira",
+        "salary" : 15000,
+        "role" : "dev"
+}
+{
+        "_id" : ObjectId("62833dad2c563f56eeda2e47"),
+        "empno" : 6,
+        "empname" : "femi",
+        "salary" : 24000,
+        "role" : "se"
+}
+{
+        "_id" : ObjectId("62833e4c2c563f56eeda2e48"),
+        "empno" : 7,
+        "empname" : "dena",
+        "salary" : 18000,
+        "role" : "jte"
+}
+{
+        "_id" : ObjectId("62833e4c2c563f56eeda2e49"),
+        "empno" : 8,
+        "empname" : "dia",
+        "salary" : 10000,
+        "role" : "jdev"
+}
+{
+        "_id" : ObjectId("62833e4c2c563f56eeda2e4a"),
+        "empno" : 9,
+        "empname" : "femina",
+        "salary" : 24000,
+        "role" : "se"
+}
+{
+        "_id" : ObjectId("62833eb62c563f56eeda2e4b"),
+        "empno" : 10,
+        "empname" : "abina",
+        "salary" : 25000,
+        "role" : "manager"
+}
+{
+        "_id" : ObjectId("628c5e33d83a9ffc239ad6ce"),
+        "empno" : 11,
+        "empname" : "Sabi",
+        "salary" : 25000,
+        "role" : "manager"
+}
+
+
+1> db.EMPL.find({empname:{$regex:"^S",$options:"$i"}}).pretty()
+{
+        "_id" : ObjectId("628c5e33d83a9ffc239ad6ce"),
+        "empno" : 11,
+        "empname" : "Sabi",
+        "salary" : 25000,
+        "role" : "manager"
+}
+2> db.EMPL.find({empname:{$regex:"k$",$options:"$i"}}).pretty()
+{
+        "_id" : ObjectId("628c603ad83a9ffc239ad6cf"),
+        "empno" : 11,
+        "empname" : "dabik",
+        "salary" : 25000,
+        "role" : "manager"
+}
+3.> db.EMPL.find({empname:{$regex:"s",$options:"$i"}}).pretty()
+{
+        "_id" : ObjectId("628c5e33d83a9ffc239ad6ce"),
+        "empno" : 11,
+        "empname" : "Sabi",
+        "salary" : 25000,
+        "role" : "manager"
+}
+4.
+> db.EMPL.update({empname:"ST"},{$inc:{"salary":8000}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+> db.EMPL.find().pretty()
+{
+        "_id" : ObjectId("62833c3d2c563f56eeda2e42"),
+        "empno" : 1,
+        "empname" : "abi",
+        "salary" : 25000,
+        "role" : "manager"
+}
+{
+        "_id" : ObjectId("62833cf72c563f56eeda2e43"),
+        "empno" : 2,
+        "empname" : "bobi",
+        "salary" : 12000,
+        "role" : "se"
+}
+{
+        "_id" : ObjectId("62833cf72c563f56eeda2e44"),
+        "empno" : 3,
+        "empname" : "ciyona",
+        "salary" : 15000,
+        "role" : "tester"
+}
+{
+        "_id" : ObjectId("62833dad2c563f56eeda2e45"),
+        "empno" : 4,
+        "empname" : "don",
+        "salary" : 8000,
+        "role" : "jse"
+}
+{
+        "_id" : ObjectId("62833dad2c563f56eeda2e46"),
+        "empno" : 5,
+        "empname" : "emira",
+        "salary" : 15000,
+        "role" : "dev"
+}
+{
+        "_id" : ObjectId("62833dad2c563f56eeda2e47"),
+        "empno" : 6,
+        "empname" : "femi",
+        "salary" : 24000,
+        "role" : "se"
+}
+{
+        "_id" : ObjectId("62833e4c2c563f56eeda2e48"),
+        "empno" : 7,
+        "empname" : "dena",
+        "salary" : 18000,
+        "role" : "jte"
+}
+{
+        "_id" : ObjectId("62833e4c2c563f56eeda2e49"),
+        "empno" : 8,
+        "empname" : "dia",
+        "salary" : 10000,
+        "role" : "jdev"
+}
+{
+        "_id" : ObjectId("62833e4c2c563f56eeda2e4a"),
+        "empno" : 9,
+        "empname" : "femina",
+        "salary" : 24000,
+        "role" : "se"
+}
+{
+        "_id" : ObjectId("62833eb62c563f56eeda2e4b"),
+        "empno" : 10,
+        "empname" : "abina",
+        "salary" : 25000,
+        "role" : "manager"
+}
+{
+        "_id" : ObjectId("628c5e33d83a9ffc239ad6ce"),
+        "empno" : 11,
+        "empname" : "Sabi",
+        "salary" : 25000,
+        "role" : "manager"
+}
+{
+        "_id" : ObjectId("628c603ad83a9ffc239ad6cf"),
+        "empno" : 11,
+        "empname" : "dabik",
+        "salary" : 25000,
+        "role" : "manager"
+}
+{
+        "_id" : ObjectId("628c61c9d83a9ffc239ad6d0"),
+        "empno" : 12,
+        "empname" : "ST",
+        "salary" : 33000,
+        "role" : "manager3"
+}
+
+
+
+
+
+5.
+> db.EMPL.updateMany({},{$inc:{"salary":4000}})
+{ "acknowledged" : true, "matchedCount" : 13, "modifiedCount" : 13 }
+> db.EMPL.find().pretty()
+{
+        "_id" : ObjectId("62833c3d2c563f56eeda2e42"),
+        "empno" : 1,
+        "empname" : "abi",
+        "salary" : 29000,
+        "role" : "manager"
+}
+{
+        "_id" : ObjectId("62833cf72c563f56eeda2e43"),
+        "empno" : 2,
+        "empname" : "bobi",
+        "salary" : 16000,
+        "role" : "se"
+}
+{
+        "_id" : ObjectId("62833cf72c563f56eeda2e44"),
+        "empno" : 3,
+        "empname" : "ciyona",
+        "salary" : 19000,
+        "role" : "tester"
+}
+{
+        "_id" : ObjectId("62833dad2c563f56eeda2e45"),
+        "empno" : 4,
+        "empname" : "don",
+        "salary" : 12000,
+        "role" : "jse"
+}
+{
+        "_id" : ObjectId("62833dad2c563f56eeda2e46"),
+        "empno" : 5,
+        "empname" : "emira",
+        "salary" : 19000,
+        "role" : "dev"
+}
+{
+        "_id" : ObjectId("62833dad2c563f56eeda2e47"),
+        "empno" : 6,
+        "empname" : "femi",
+        "salary" : 28000,
+        "role" : "se"
+}
+{
+        "_id" : ObjectId("62833e4c2c563f56eeda2e48"),
+        "empno" : 7,
+        "empname" : "dena",
+        "salary" : 22000,
+        "role" : "jte"
+}
+{
+        "_id" : ObjectId("62833e4c2c563f56eeda2e49"),
+        "empno" : 8,
+        "empname" : "dia",
+        "salary" : 14000,
+        "role" : "jdev"
+}
+{
+        "_id" : ObjectId("62833e4c2c563f56eeda2e4a"),
+        "empno" : 9,
+        "empname" : "femina",
+        "salary" : 28000,
+        "role" : "se"
+}
+{
+        "_id" : ObjectId("62833eb62c563f56eeda2e4b"),
+        "empno" : 10,
+        "empname" : "abina",
+        "salary" : 29000,
+        "role" : "manager"
+}
+{
+        "_id" : ObjectId("628c5e33d83a9ffc239ad6ce"),
+        "empno" : 11,
+        "empname" : "Sabi",
+        "salary" : 29000,
+        "role" : "manager"
+}
+{
+        "_id" : ObjectId("628c603ad83a9ffc239ad6cf"),
+        "empno" : 11,
+        "empname" : "dabik",
+        "salary" : 29000,
+        "role" : "manager"
+}
+{
+        "_id" : ObjectId("628c61c9d83a9ffc239ad6d0"),
+        "empno" : 12,
+        "empname" : "ST",
+        "salary" : 37000,
+        "role" : "manager3"
+}
+
+6.
+> db.EMPL.updateMany({},{$set:{"RS":"WC"}})
+{ "acknowledged" : true, "matchedCount" : 13, "modifiedCount" : 13 }
+> db.EMPL.find().pretty()
+{
+        "_id" : ObjectId("62833c3d2c563f56eeda2e42"),
+        "empno" : 1,
+        "empname" : "abi",
+        "salary" : 29000,
+        "role" : "manager",
+        "RS" : "WC"
+}
+{
+        "_id" : ObjectId("62833cf72c563f56eeda2e43"),
+        "empno" : 2,
+        "empname" : "bobi",
+        "salary" : 16000,
+        "role" : "se",
+        "RS" : "WC"
+}
+{
+        "_id" : ObjectId("62833cf72c563f56eeda2e44"),
+        "empno" : 3,
+        "empname" : "ciyona",
+        "salary" : 19000,
+        "role" : "tester",
+        "RS" : "WC"
+}
+{
+        "_id" : ObjectId("62833dad2c563f56eeda2e45"),
+        "empno" : 4,
+        "empname" : "don",
+        "salary" : 12000,
+        "role" : "jse",
+        "RS" : "WC"
+}
+{
+        "_id" : ObjectId("62833dad2c563f56eeda2e46"),
+        "empno" : 5,
+        "empname" : "emira",
+        "salary" : 19000,
+        "role" : "dev",
+        "RS" : "WC"
+}
+{
+        "_id" : ObjectId("62833dad2c563f56eeda2e47"),
+        "empno" : 6,
+        "empname" : "femi",
+        "salary" : 28000,
+        "role" : "se",
+        "RS" : "WC"
+}
+{
+        "_id" : ObjectId("62833e4c2c563f56eeda2e48"),
+        "empno" : 7,
+        "empname" : "dena",
+        "salary" : 22000,
+        "role" : "jte",
+        "RS" : "WC"
+}
+{
+        "_id" : ObjectId("62833e4c2c563f56eeda2e49"),
+        "empno" : 8,
+        "empname" : "dia",
+        "salary" : 14000,
+        "role" : "jdev",
+        "RS" : "WC"
+}
+{
+        "_id" : ObjectId("62833e4c2c563f56eeda2e4a"),
+        "empno" : 9,
+        "empname" : "femina",
+        "salary" : 28000,
+        "role" : "se",
+        "RS" : "WC"
+}
+{
+        "_id" : ObjectId("62833eb62c563f56eeda2e4b"),
+        "empno" : 10,
+        "empname" : "abina",
+        "salary" : 29000,
+        "role" : "manager",
+        "RS" : "WC"
+}
+{
+        "_id" : ObjectId("628c5e33d83a9ffc239ad6ce"),
+        "empno" : 11,
+        "empname" : "Sabi",
+        "salary" : 29000,
+        "role" : "manager",
+        "RS" : "WC"
+}
+{
+        "_id" : ObjectId("628c603ad83a9ffc239ad6cf"),
+        "empno" : 11,
+        "empname" : "dabik",
+        "salary" : 29000,
+        "role" : "manager",
+        "RS" : "WC"
+}
+{
+        "_id" : ObjectId("628c61c9d83a9ffc239ad6d0"),
+        "empno" : 12,
+        "empname" : "ST",
+        "salary" : 37000,
+        "role" : "manager3",
+        "RS" : "WC"
+}
+>

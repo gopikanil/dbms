@@ -1,0 +1,150 @@
+III.          
+Designing
+Databases using NoSQL
+
+
+Build
+sample collections/documents to perform query operations
+
+
+ 
+
+
+Prog 17: 
+
+
+1)   
+Create database Employee and Make
+Collection With name "EMPL"
+
+
+2)   
+Insert Records Into EMPL Collection(10
+records)
+
+
+3)   
+Display Data in Proper Format
+
+
+>db.createCollection("EMPL")
+> db.EMPL.insert({"empno":1,"empname":"abi","salary":25000,"role":"manager"})
+WriteResult({ "nInserted" : 1 })
+ 
+}
+> db.EMPL.insertMany([{"empno":2,"empname":"bobi","salary":12000,"role":"se"},{"
+empno":3,"empname":"ciyona","salary":15000,"role":"tester"}])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("62833cf72c563f56eeda2e43"),
+                ObjectId("62833cf72c563f56eeda2e44")
+        ]
+}
+> db.EMPL.insertMany([{"empno":4,"empname":"don","salary":8000,"role":"jse"},{"e
+mpno":5,"empname":"emira","salary":15000,"role":"dev"},{"empno":6,"empname":"fem
+i","salary":24000,"role":"se"}])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("62833dad2c563f56eeda2e45"),
+                ObjectId("62833dad2c563f56eeda2e46"),
+                ObjectId("62833dad2c563f56eeda2e47")
+        ]
+}
+> db.EMPL.insertMany([{"empno":7,"empname":"dena","salary":18000,"role":"jte"},{
+"empno":8,"empname":"dia","salary":10000,"role":"jdev"},{"empno":9,"empname":"fe
+mina","salary":24000,"role":"se"}])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("62833e4c2c563f56eeda2e48"),
+                ObjectId("62833e4c2c563f56eeda2e49"),
+                ObjectId("62833e4c2c563f56eeda2e4a")
+        ]
+}
+> db.EMPL.insertMany([{"empno":10,"empname":"sibi","salary":60000,"role":"sse"])
+
+...
+...
+> db.EMPL.insert({"empno":10,"empname":"abina","salary":25000,"role":"manager"})
+
+WriteResult({ "nInserted" : 1 })
+c.Neat format
+> db.EMPL.find().pretty()
+{
+        "_id" : ObjectId("62833c3d2c563f56eeda2e42"),
+        "empno" : 1,
+        "empname" : "abi",
+        "salary" : 25000,
+        "role" : "manager"
+}
+{
+        "_id" : ObjectId("62833cf72c563f56eeda2e43"),
+        "empno" : 2,
+        "empname" : "bobi",
+        "salary" : 12000,
+        "role" : "se"
+}
+{
+        "_id" : ObjectId("62833cf72c563f56eeda2e44"),
+        "empno" : 3,
+        "empname" : "ciyona",
+        "salary" : 15000,
+        "role" : "tester"
+}
+{
+        "_id" : ObjectId("62833dad2c563f56eeda2e45"),
+        "empno" : 4,
+        "empname" : "don",
+        "salary" : 8000,
+        "role" : "jse"
+}
+{
+        "_id" : ObjectId("62833dad2c563f56eeda2e46"),
+        "empno" : 5,
+        "empname" : "emira",
+        "salary" : 15000,
+        "role" : "dev"
+}
+{
+        "_id" : ObjectId("62833dad2c563f56eeda2e47"),
+        "empno" : 6,
+        "empname" : "femi",
+        "salary" : 24000,
+        "role" : "se"
+}
+{
+        "_id" : ObjectId("62833e4c2c563f56eeda2e48"),
+        "empno" : 7,
+        "empname" : "dena",
+        "salary" : 18000,
+        "role" : "jte"
+}
+{
+        "_id" : ObjectId("62833e4c2c563f56eeda2e49"),
+        "empno" : 8,
+        "empname" : "dia",
+        "salary" : 10000,
+        "role" : "jdev"
+}
+{
+        "_id" : ObjectId("62833e4c2c563f56eeda2e4a"),
+        "empno" : 9,
+        "empname" : "femina",
+        "salary" : 24000,
+        "role" : "se"
+}
+{
+        "_id" : ObjectId("62833eb62c563f56eeda2e4b"),
+        "empno" : 10,
+        "empname" : "abina",
+        "salary" : 25000,
+        "role" : "manager"
+}
+
+ 
+
+
+
+

@@ -1,0 +1,101 @@
+Prog
+18:
+
+1)   
+Create a database movie and make
+collection with name �MovieDetails�
+
+
+2)   
+Insert
+the following documents into MovieDetails
+Title,Writer,Year,Actors
+
+
+3)   
+Insert Records Into MovieDetails
+Collection(10 records)
+
+
+4)   
+Display Data in Proper Format
+
+
+ > use movie
+switched to db movie
+
+> db.MovieDetails.find().pretty()
+{
+        "_id" : ObjectId("628c57fda63ea54a0d03c5fe"),
+        "Title" : "Harry Potter",
+        "Writer" : "JK Rowling",
+        "Year" : 2002,
+        "Actors" : "Daniel Radclif"
+}
+{
+        "_id" : ObjectId("628c5867a63ea54a0d03c5ff"),
+        "Title" : "KGF1",
+        "Writer" : "Prashanth Neel",
+        "Year" : 2020,
+        "Actors" : "Yash"
+}
+{
+        "_id" : ObjectId("628c587ea63ea54a0d03c600"),
+        "Title" : "KGF2",
+        "Writer" : "Prashanth Neel",
+        "Year" : 2022,
+        "Actors" : "Yash"
+}
+{
+        "_id" : ObjectId("628c58c9a63ea54a0d03c601"),
+        "Title" : "12th man",
+        "Writer" : "KR Krishnakumar",
+        "Year" : 2022,
+        "Actors" : "Mohanlal"
+}
+{
+        "_id" : ObjectId("628c5916a63ea54a0d03c602"),
+        "Title" : "RRR",
+        "Writer" : "Rajamauli",
+        "Year" : 2022,
+        "Actors" : "Ramcharan"
+}
+{
+        "_id" : ObjectId("628c5958a63ea54a0d03c603"),
+        "Title" : "Beast",
+        "Writer" : "Nelson",
+        "Year" : 2022,
+        "Actors" : "vijay"
+}
+{
+        "_id" : ObjectId("628c59bba63ea54a0d03c604"),
+        "Title" : "Gangubhai",
+        "Writer" : "Sanjay leela Bansali",
+        "Year" : 2022,
+        "Actors" : "Alia Bhatt"
+}
+{
+        "_id" : ObjectId("628c5a4da63ea54a0d03c605"),
+        "Title" : "Jumanji",
+        "Writer" : "Greg Taylor",
+        "Year" : 1995,
+        "Actors" : "Dwayne Johnson"
+}
+{
+        "_id" : ObjectId("628c5ac4a63ea54a0d03c606"),
+        "Title" : "Avengers",
+        "Writer" : "Zakk Penn",
+        "Year" : 2019,
+        "Actors" : "Robert Down"
+}
+{
+        "_id" : ObjectId("628c5b3da63ea54a0d03c607"),
+        "Title" : "Don",
+        "Writer" : "Cibi Chakrabarthy",
+        "Year" : 2022,
+        "Actors" : "Shivakarthikeyan"
+}
+
+
+
+  
